@@ -27,6 +27,8 @@ namespace SecuringWebApiUsingApiKey.Attributes
           }
 
           var appSettings = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+          
+          // Get Api Key from appsettings.json
           var apiKey = appSettings.GetValue<string>("ApiKey");
 
           if(!apiKey.Equals(extractedApiKey))
